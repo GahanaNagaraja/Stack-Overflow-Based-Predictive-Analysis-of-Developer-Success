@@ -19,11 +19,11 @@ The study follows the CRISP-DM methodology to guide the workflow:
 
 - Libraries:
 
---pandas, numpy – Data processing
+-- pandas, numpy – Data processing
 
---matplotlib, seaborn – Visualization
+-- matplotlib, seaborn – Visualization
 
---scikit-learn – Modeling and evaluation
+-- scikit-learn – Modeling and evaluation
 
 ## Dataset
 
@@ -64,6 +64,10 @@ Salary Prediction:
 - Mean Absolute Error (MAE): ~$50,500
 
 - R² Score: ~0.06
+
+Job Satisfaction Prediction:
+
+- Accuracy: Acceptable (see classification report for precision/recall per class)
 
 ## Key Findings
 
