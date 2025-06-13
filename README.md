@@ -18,12 +18,11 @@ The study follows the CRISP-DM methodology to guide the workflow:
 - Google Colab
 
 - Libraries:
-
--- pandas, numpy – Data processing
-
--- matplotlib, seaborn – Visualization
-
--- scikit-learn – Modeling and evaluation
+    - pandas, numpy – Data processing
+      
+    - matplotlib, seaborn – Visualization
+      
+    - scikit-learn – Modeling and evaluation
 
 ## Dataset
 
