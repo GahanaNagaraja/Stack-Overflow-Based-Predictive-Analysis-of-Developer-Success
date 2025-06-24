@@ -1,5 +1,5 @@
 # Stack-Overflow-Based-Predictive-Analysis-of-Developer-Success
-This project explores key factors influencing developer success by analyzing data from the 2024 Stack Overflow Developer Survey. Success is measured in terms of annual salary and job satisfaction. The analysis uses machine learning models to derive insights and predict outcomes based on variables such as education, employment type, remote work setup, and years of experience.
+This project explores key factors influencing developer success by analyzing data from the 2024 Stack Overflow Developer Survey. Success is measured in terms of annual salary. The analysis uses machine learning model to derive insights and predict outcomes based on variables such as education, employment type, remote work setup, and years of experience.
 
 ## Project Overview
 The study follows the CRISP-DM methodology to guide the workflow:
@@ -8,7 +8,7 @@ The study follows the CRISP-DM methodology to guide the workflow:
 
 - Cleaned and preprocessed the data, handling missing values and converting text features.
 
-- Built two predictive models: one for salary estimation (regression) and one for job satisfaction classification.
+- Built a predictive model for salary estimation (regression).
 
 - Evaluated model performance and summarized findings.
 
@@ -30,7 +30,7 @@ The study follows the CRISP-DM methodology to guide the workflow:
 
 - File: survey_results_public.csv
 
-- Size: Over 65,000 responses
+- Size: Over 65,000 responses (note: exceeds GitHub's 25MB upload limit)
 
 - Features used: Education level, employment type, remote work status, years of coding experience, job satisfaction, and salary
 
@@ -46,16 +46,6 @@ The study follows the CRISP-DM methodology to guide the workflow:
 
 - Features: EdLevel, Employment, RemoteWork, YearsCodePro
 
-2. Job Satisfaction Prediction Model
-
-- Target Variable: JobSat
-
-- Type: Classification
-
-- Model Used: Random Forest Classifier
-
-- Features: Same as salary prediction model
-
 ## Evaluation Metrics
 
 Salary Prediction:
@@ -64,20 +54,22 @@ Salary Prediction:
 
 - R² Score: ~0.06
 
-Job Satisfaction Prediction:
-
-- Accuracy: Acceptable (see classification report for precision/recall per class)
-
 ## Key Findings
 
-- Remote work and professional experience significantly impact both salary and satisfaction.
+- Remote work and professional experience significantly impact salary.
 
 - Predicting salary is difficult due to high variance and missing key variables (like geography, company size).
 
-- Job satisfaction was predicted with decent accuracy using only basic demographic and employment features.
+## Future Scope
+
+- Integrate additional features such as country, job title, and technologies worked with.
+
+- Apply advanced models (e.g., XGBoost, SHAP) for improved interpretability.
+
+- Extend the analysis across multiple survey years to track trends over time.
 
 ## Conclusion
 
-This project demonstrates how publicly available developer survey data can be used to derive valuable insights and build predictive models. Although salary prediction remains complex, the classification of job satisfaction shows promise using foundational attributes. The insights gathered here can inform hiring practices, career planning, and workforce analytics.
+This project demonstrates how publicly available developer survey data can be used to derive valuable insights and build predictive models. Although salary prediction remains complex, the insights gathered here can inform hiring practices, career planning, and workforce analytics.
 
 
