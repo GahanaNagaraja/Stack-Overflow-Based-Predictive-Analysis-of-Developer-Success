@@ -26,7 +26,7 @@ The study follows the CRISP-DM methodology to guide the workflow:
 
 ## Dataset
 
-- Source: Stack Overflow 2024 Developer Survey
+- Source: [Stack Overflow 2024 Developer Survey](https://survey.stackoverflow.co/2024)
 
 - File: survey_results_public.csv
 
