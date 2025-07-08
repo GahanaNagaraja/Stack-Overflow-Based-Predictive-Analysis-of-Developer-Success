@@ -44,6 +44,66 @@ plt.show()
 # Summary statistics
 eda_df.describe(include='all')
 
+# Prepare the data
+edu_salary = df[['EdLevel', 'ConvertedCompYearly']].dropna()
+edu_salary = edu_salary[edu_salary['ConvertedCompYearly'] < 500000]
+
+# Group by education level and calculate mean salary
+edu_avg_salary = edu_salary.groupby('EdLevel')['ConvertedCompYearly'].mean().sort_values(ascending=False)
+
+# Plot
+plt.figure(figsize=(12,6))
+sns.barplot(x=edu_avg_salary.values, y=edu_avg_salary.index)
+plt.title('Average Salary by Education Level')
+plt.xlabel('Average Annual Salary (USD)')
+plt.ylabel('Education Level')
+plt.tight_layout()
+plt.show()
+
+# Group by Salary and years of experience
+exp_salary = df[['YearsCodePro', 'ConvertedCompYearly']].dropna()
+exp_salary = exp_salary[exp_salary['ConvertedCompYearly'] < 500000]
+exp_salary = exp_salary[exp_salary['YearsCodePro'] != 'Less than 1 year']
+exp_salary['YearsCodePro'] = exp_salary['YearsCodePro'].replace('More than 50 years', '51')
+exp_salary['YearsCodePro'] = pd.to_numeric(exp_salary['YearsCodePro'])
+
+plt.figure(figsize=(10,6))
+sns.lineplot(data=exp_salary, x='YearsCodePro', y='ConvertedCompYearly')
+plt.title('Salary by Years of Professional Coding Experience')
+plt.xlabel('Years of Professional Experience')
+plt.ylabel('Annual Salary (USD)')
+plt.tight_layout()
+plt.show()
+
+# Group by Salary and remote work setting
+remote_salary = df[['RemoteWork', 'ConvertedCompYearly']].dropna()
+remote_salary = remote_salary[remote_salary['ConvertedCompYearly'] < 500000]
+
+plt.figure(figsize=(10,6))
+sns.violinplot(x='RemoteWork', y='ConvertedCompYearly', data=remote_salary)
+plt.xticks(rotation=30)
+plt.title('Salary Distribution by Remote Work Setting')
+plt.xlabel('Remote Work Setting')
+plt.ylabel('Annual Salary (USD)')
+plt.tight_layout()
+plt.show()
+
+# Use LanguageHaveWorkedWith and salary
+lang_salary = df[['LanguageHaveWorkedWith', 'ConvertedCompYearly']].dropna()
+lang_salary = lang_salary[lang_salary['ConvertedCompYearly'] < 500000]
+
+# Explode languages into separate rows
+lang_salary = lang_salary.assign(Language=lang_salary['LanguageHaveWorkedWith'].str.split(';')).explode('Language')
+lang_grouped = lang_salary.groupby('Language')['ConvertedCompYearly'].mean().sort_values(ascending=False).head(10)
+
+# Plot
+plt.figure(figsize=(10,5))
+sns.barplot(x=lang_grouped.values, y=lang_grouped.index)
+plt.title('Top 10 Languages by Average Salary')
+plt.xlabel('Average Annual Salary (USD)')
+plt.ylabel('Programming Language')
+plt.tight_layout()
+plt.show()
 
 # Drop rows missing key values
 clean_df = eda_df.dropna(subset=['ConvertedCompYearly', 'YearsCodePro', 'EdLevel', 'Employment']).copy()
